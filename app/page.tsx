@@ -16,21 +16,18 @@ export default async function Home() {
         className="text-center w-full min-h-screen relative"
         data-testid={testIds.HOME_PAGE.HEADER}
       >
-        <video autoPlay muted loop className="video-background">
-          <source
-            src="https://video.wixstatic.com/video/11062b_9de2dbff3dda403b944bb98c41cb5764/1080p/mp4/file.mp4"
-            type="video/mp4"
+          <img className="video-background"
+            src="/index.jpeg"
           />
-        </video>
         <div className="text-center px-3">
-          <div className="font-sans font-bold uppercase tracking-widest pt-16">
-            Ambition is the first step towards
+          <div className="font-sans font-bold uppercase tracking-widest pt-16 bg-slate-100/50	">
+            Não se preocupe mais em perder
           </div>
-          <div className="font-lulo text-4xl sm:text-6xl md:text-8xl pt-4">
-            Success
+          <div className="font-lulo text-4xl sm:text-6xl md:text-8xl pt-4 bg-slate-100/50">
+            Seu Arganel
           </div>
-          <div className="text-xl pt-6 tracking-wider">
-            Now Available for Online Coaching
+          <div className="text-xl pt-6 tracking-wider bg-slate-100/50">
+            Agora ele terá seu nome
           </div>
           <div className="pt-7">
             <a
@@ -38,7 +35,7 @@ export default async function Home() {
               href="/book-now"
               data-testid={testIds.HOME_PAGE.BOOK_NOW_CTA}
             >
-              Book Now
+              Quero
             </a>
           </div>
         </div>

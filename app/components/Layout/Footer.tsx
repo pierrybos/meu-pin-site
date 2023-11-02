@@ -1,7 +1,11 @@
+"use client"
 import './footer.css';
-import Image from 'next/image';
 import ScrollIntoView from '@app/components/ScrollIntoView/ScrollIntoView';
 import testIds from '@app/utils/test-ids';
+import React, { useState, FormEvent } from 'react'
+
+
+
 
 const FooterNote = () => (
   <div className="text-xs" data-testid={testIds.LAYOUT.FOOTER}>
@@ -22,20 +26,53 @@ const FooterNote = () => (
   </div>
 );
 
-const Footer = () => (
+const Footer = () => {
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
+ 
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsLoading(true)
+    setError(null) // Clear previous errors when a new request starts
+ 
+    try {
+      const formData = new FormData(event.currentTarget)
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        body: formData,
+      })
+ 
+      if (!response.ok) {
+        throw new Error('Failed to submit the data. Please try again.')
+      }
+ 
+      // Handle response if necessary
+      const data = await response.json()
+      // ...
+    } catch (error) {
+      // Capture the error message to display to the user
+      setError(error.message)
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+ 
+return (
   <footer className="w-fullm-h-56 bg-turquoise-100 leading-7">
     <div className="max-w-full-content mx-auto sm:flex gap-2 pt-11 pb-20">
       <div className="flex-1">
         <div className="px-6 sm:pr-0">
           <div className="header-line"></div>
-          <p className="font-lulo mb-10">Contact</p>
+          <p className="font-lulo mb-10">Contacto</p>
           <div className="text-sm tracking-wide sm:mb-5">
             <p>
-              <span>500 Terry Francois Street</span>
+              <span>Av Assis Brasil,</span>
             </p>
 
             <p>
-              <span>San Francisco, CA 94158</span>
+              <span>Porto Alegre, RS 91010-006</span>
             </p>
 
             <p>
@@ -43,11 +80,7 @@ const Footer = () => (
             </p>
 
             <p>
-              <span>Tel: 123-456-7890</span>
-            </p>
-
-            <p>
-              <span>Fax: 123-456-7890</span>
+              <span>Tel: 51 982599506</span>
             </p>
 
             <p>
@@ -62,7 +95,7 @@ const Footer = () => (
               </span>
             </p>
           </div>
-          <div className="mb-16">
+{ /*         <div className="mb-16">
             <ul aria-label="Social Bar" className="flex gap-4">
               <li>
                 <a
@@ -121,19 +154,19 @@ const Footer = () => (
                 </a>
               </li>
             </ul>
-          </div>
+</div> */ }
           <div className="mb-16 hidden sm:block">
             <FooterNote />
           </div>
         </div>
       </div>
       <div className="flex-1">
-        <form>
+        <form onSubmit={onSubmit}>
           <ScrollIntoView hashName="#contact" />
           <div className="px-6 sm:pl-0 sm:pr-9">
             <div className="footer-form-field">
               <label htmlFor="contact-form-name" className="footer-form-label">
-                Enter Your Name
+                Seu Nome
               </label>
               <input
                 className="footer-form-input"
@@ -151,7 +184,7 @@ const Footer = () => (
                 className="footer-form-label"
                 aria-required
               >
-                Enter Your Email
+                Seu Email
               </label>
               <input
                 className="footer-form-input"
@@ -169,7 +202,7 @@ const Footer = () => (
                 htmlFor="contact-form-subject"
                 className="footer-form-label"
               >
-                Enter Your Subject
+                Telefone
               </label>
               <input
                 className="footer-form-input"
@@ -185,7 +218,7 @@ const Footer = () => (
                 htmlFor="contact-form-message"
                 className="footer-form-label"
               >
-                Message
+                Informe a quantidade de pins que deseja, e entraremos em contato
               </label>
               <textarea
                 className="footer-form-input h-32"
@@ -199,8 +232,9 @@ const Footer = () => (
               <button
                 className="btn-main w-full p-1 w-full sm:w-32"
                 aria-disabled="false"
-              >
-                <span>Submit</span>
+                disabled={isLoading}>
+                <span>{isLoading ? 'Solicitando...' : 'Solicitar'}
+                </span>
               </button>
             </div>
             <div className="sm:hidden">
@@ -212,5 +246,6 @@ const Footer = () => (
     </div>
   </footer>
 );
+}
 
 export default Footer;

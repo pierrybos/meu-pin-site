@@ -1,15 +1,9 @@
+'use client'
 import './page.css';
-import ServiceListPreview from '@app/components/ServiceList/ServiceListPreview';
 import ScrollIntoView from '@app/components/ScrollIntoView/ScrollIntoView';
-import { useServerAuthSession } from '@app/hooks/useServerAuthSession';
-import { safeGetServices } from '@app/model/service/service-api';
 import testIds from '@app/utils/test-ids';
 
 export default async function Home() {
-  const wixSession = useServerAuthSession();
-  const {
-    data: { services },
-  } = await safeGetServices(wixSession, { limit: 3 });
   return (
     <div>
       <div
@@ -32,7 +26,7 @@ export default async function Home() {
           <div className="pt-7">
             <a
               className="btn-main"
-              href="/book-now"
+              href="/#contact"
               data-testid={testIds.HOME_PAGE.BOOK_NOW_CTA}
             >
               Quero
@@ -48,57 +42,41 @@ export default async function Home() {
             <div className="pl-5 py-2 pr-5 sm:w-2/4 sm:pr-24 sm:pr-0">
               <div className="header-line my-8"></div>
               <h2 className="mb-7 mt-10 tracking-tighter max-w-xs title">
-                About me
+              Conheça MeuPin
               </h2>
               <p className="text-sm flex-1 leading-7">
-                My name is Allan Johnson and I am a personal coach. My goal is
-                to assist people identify and overcome obstacles in their lives
-                and to maximize their potential. Through my coaching, I help
-                people set goals, build the confidence and skills they need to
-                achieve success and develop a positive mindset and a sense of
-                self-worth.
-              </p>
-              <p>&nbsp;</p>
-              <p className="text-sm flex-1 leading-7">
-                As the famous American author, salesman and motivational speaker
-                Zig Ziglar once said: “Success is the doing, not the getting; in
-                the trying, not the triumph. Success is a personal standard,
-                reaching for the highest that is in us, becoming all that we can
-                be. If we do our best, we are a success.
-              </p>
+                A solução perfeita para aventureiros e desbravadores que desejam manter seus arganeis,
+                  trunfos e pins de forma segura e identificável. Com nossas placas de identificação de alta
+                  qualidade, você nunca mais perderá seu anel de aventura sem saber de quem é. 
+                  Cada placa é personalizada com um QRCode exclusivo que contém informações de contato, 
+                  permitindo que qualquer pessoa que o encontre entre em contato com você de forma rápida 
+                  e fácil.</p>
+                  <strong className="font-semibold text-gray-900">
+    Características Principais:</strong>
+    <ul className="list-disc">
+        <li>Plaquinhas de Identificação em tamanhos de 1cm, 1.5cm ou 2cm</li>
+        <li>QRCode único gravado para identificação rápida</li>
+        <li>Mantenha seu arganel, trunfo ou pin seguro e identificável</li>
+        <li>Ideal para Desbravadores, Aventureiros e amantes da natureza</li>
+        <li>Evite a perda acidental e recupere seu arganel com facilidade</li>
+    </ul>
+
+    <p className="text-sm flex-1 leading-7">
+Não perca mais seu arganel sem saber de quem é. 
+Experimente MeuPin hoje e mantenha-se 
+sempre pronto para a próxima aventura.</p>
+
               <div className="mt-11 mb-20">
-                <a href="/about-me" className="btn-main">
-                  Read More
+                <a href="/#contact" className="btn-main">
+                  Quero
                 </a>
               </div>
             </div>
           </div>
           <div className="w-full sm:absolute sm:top-0 sm:left-2/4 sm:w-2/4 h-full">
-            <div className="bg-[url('/about-me.jpeg')] w-full h-full bg-cover min-h-[320px]"></div>
+            <div className="bg-[url('/arganeis.jpg')] w-full h-full bg-cover min-h-[320px]"></div>
           </div>
         </div>
-      </div>
-      <div className="parallax-background">
-        {services?.length ? (
-          <div
-            className="max-w-full-content mx-auto bg-transparent p-5"
-            data-testid={testIds.HOME_PAGE.SERVICES_SECTION}
-          >
-            <div className="header-line my-8"></div>
-            <h2 className="mb-7 mt-10 tracking-tighter title max-w-xs">
-              How I Can Help You
-            </h2>
-
-            <>
-              <ServiceListPreview services={services} />
-              <div className="flex my-8 justify-center">
-                <a className="btn-main" href="/book-now">
-                  More Services
-                </a>
-              </div>
-            </>
-          </div>
-        ) : null}
       </div>
     </div>
   );

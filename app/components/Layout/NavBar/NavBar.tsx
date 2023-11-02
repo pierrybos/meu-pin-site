@@ -3,15 +3,10 @@ import { NavLink } from './NavLink';
 import { useCallback, useState } from 'react';
 import type { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
-import Login from '@app/components/Login/Login';
 
 const navbarItems = [
-  { ref: '/#about', label: 'About' },
-  { ref: '/book-now', label: 'Services' },
-  { ref: '/plans', label: 'Plans' },
-  { ref: '/guides', label: 'Guides' },
-  { ref: '/#contact', label: 'Contact' },
-  { ref: '/account/my-account', label: 'Account', prefetch: false },
+  { ref: '/#about', label: 'Sobre' },
+  { ref: '/#contact', label: 'Quero' },
 ];
 
 export const StyledNavLink = ({
@@ -88,11 +83,6 @@ export function NavBar() {
               <span className="absolute -bottom-5 md:hidden border-b-2 w-48 left-[calc(50%_-_theme(space.24))]" />
             </li>
           ))}
-          <li className="order-first md:order-last justify-end">
-            <div className="flex flex-nowrap text-turquoise-200 gap-2 justify-center items-center">
-              <Login onActionClick={() => setIsMenuShown(false)} />
-            </div>
-          </li>
         </ul>
       </nav>
     </>

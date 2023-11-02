@@ -50,7 +50,7 @@ const Footer = () => {
       // Handle response if necessary
       const data = await response.json()
       // ...
-    } catch (error) {
+    } catch (error:any) {
       // Capture the error message to display to the user
       setError(error.message)
       console.error(error)
@@ -173,6 +173,20 @@ return (
                 id="contact-form-name"
                 type="text"
                 name="name"
+                placeholder=""
+                aria-required="false"
+                maxLength={100}
+              />
+            </div>
+            <div className="footer-form-field">
+              <label htmlFor="contact-form-clube" className="footer-form-label">
+                Seu Clube
+              </label>
+              <input
+                className="footer-form-input"
+                id="contact-form-clube"
+                type="text"
+                name="clube"
                 placeholder=""
                 aria-required="false"
                 maxLength={100}

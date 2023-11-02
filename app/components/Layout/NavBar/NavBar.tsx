@@ -67,7 +67,7 @@ export function NavBar() {
         } transition-all duration-500 ease-in-out md:block overflow-hidden max-md:absolute max-md:animate-sideways-once max-md:h-screen max-md:bg-white max-md:pt-24 z-40 top-0 right-0`}
       >
         <ul className="flex flex-col items-center md:flex-row gap-10 md:gap-4 min-[900px]:gap-5 lg:gap-8 justify-end text-sm md:text-[15px] leading-[22px]">
-          {navbarItems.map(({ ref, label, prefetch }) => (
+          {navbarItems.map(({ ref, label }) => (
             <li key={ref} className="relative">
               <StyledNavLink
                 isActive={ref === linkRef}
@@ -76,7 +76,6 @@ export function NavBar() {
                   setLinkRef(ref);
                   setIsMenuShown(false);
                 }}
-                prefetch={prefetch}
               >
                 {label}
               </StyledNavLink>

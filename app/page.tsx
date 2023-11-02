@@ -6,15 +6,11 @@ import testIds from '@app/utils/test-ids';
 export default async function Home() {
   return (
     <div>
-      <div
-        className="text-center w-full min-h-screen relative"
-        data-testid={testIds.HOME_PAGE.HEADER}
-      >
-          <img className="video-background"
-            src="/index.jpeg"
-          />
+      <div className="text-center w-full min-h-screen relative"
+        data-testid={testIds.HOME_PAGE.HEADER}>
+          <img className="video-background" src="/index.jpeg" />
         <div className="text-center px-3">
-          <div className="font-sans font-bold uppercase tracking-widest pt-16 bg-slate-100/50	">
+          <div className="font-sans font-bold uppercase tracking-widest pt-16 bg-slate-100/50">
             Não se preocupe mais em perder
           </div>
           <div className="font-lulo text-4xl sm:text-6xl md:text-8xl pt-4 bg-slate-100/50">

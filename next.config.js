@@ -7,7 +7,7 @@ const nextConfig = {
     appDir: true,
   },
   eslint: {
-    dirs: ['app', 'src'],
+    dirs: ['src'],
   },
   images: {
     domains: ['fakeimg.pl'],

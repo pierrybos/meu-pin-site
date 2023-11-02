@@ -199,17 +199,17 @@ return (
             </div>
             <div className="footer-form-field">
               <label
-                htmlFor="contact-form-subject"
+                htmlFor="contact-form-phone"
                 className="footer-form-label"
               >
                 Telefone
               </label>
               <input
                 className="footer-form-input"
-                id="contact-form-subject"
+                id="contact-form-phone"
                 type="text"
-                name="subject"
-                placeholder=""
+                name="phone"
+                placeholder="Telefone"
                 aria-required="false"
               />
             </div>

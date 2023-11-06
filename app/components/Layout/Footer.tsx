@@ -7,25 +7,6 @@ import React, { useState, FormEvent } from 'react'
 
 
 
-const FooterNote = () => (
-  <div className="text-xs" data-testid={testIds.LAYOUT.FOOTER}>
-    <p>© 2023 by Personal Life Coach.</p>
-    <p>
-      <span>Powered and secured by </span>
-      <span>
-        <a
-          className="underline"
-          href="https://wix.com/?utm_campaign=vir_created_with"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Wix
-        </a>
-      </span>
-    </p>
-  </div>
-);
-
 const Footer = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -65,7 +46,7 @@ return (
       <div className="flex-1">
         <div className="px-6 sm:pr-0">
           <div className="header-line"></div>
-          <p className="font-lulo mb-10">Contacto</p>
+          <p className="font-lulo mb-10">Contato</p>
           <div className="text-sm tracking-wide sm:mb-5">
             <p>
               <span>Av Assis Brasil,</span>
@@ -78,9 +59,8 @@ return (
             <p>
               <span>​​</span>
             </p>
-
             <p>
-              <span>Tel: 51 982599506</span>
+              <span >Tel: 51 982599506</span>
             </p>
 
             <p>
@@ -89,8 +69,8 @@ return (
 
             <p>
               <span>
-                <a href="mailto:info@mysite.com" target="_self">
-                  info@mysite.com
+                <a href="mailto:pierrybos@gmail.com" target="_self">
+                  pierrybos@gmail.com
                 </a>
               </span>
             </p>
@@ -155,9 +135,6 @@ return (
               </li>
             </ul>
 </div> */ }
-          <div className="mb-16 hidden sm:block">
-            <FooterNote />
-          </div>
         </div>
       </div>
       <div className="flex-1">
@@ -250,9 +227,6 @@ return (
                 <span>{isLoading ? 'Solicitando...' : 'Solicitar'}
                 </span>
               </button>
-            </div>
-            <div className="sm:hidden">
-              <FooterNote />
             </div>
           </div>
         </form>

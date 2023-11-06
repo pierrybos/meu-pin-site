@@ -6,11 +6,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   const formData = await request.formData()
-  const name = formData.get('name')
-  const email = formData.get('email')
-  const phone = formData.get('phone')
-  const message = formData.get('message')
-  const clube = formData.get('clube')
+  const name = formData.get('name') as string
+  const email = formData.get('email') as string
+  const phone = formData.get('phone') as string
+  const message = formData.get('message') as string
+  const clube = formData.get('clube') as string
 
   try {
     const data = await resend.emails.send({

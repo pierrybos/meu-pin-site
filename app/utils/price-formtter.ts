@@ -53,7 +53,7 @@ export const formatCurrency = (
 
 export const formatCurrencyToParts = (
   price: number | string = 0,
-  currency: string = 'USD'
+  currency: string = 'R$'
 ) => ({
   currencySign:
     Intl.NumberFormat('en', { style: 'currency', currency })

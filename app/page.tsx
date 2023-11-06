@@ -2,10 +2,13 @@
 import './page.css';
 import ScrollIntoView from '@app/components/ScrollIntoView/ScrollIntoView';
 import testIds from '@app/utils/test-ids';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 export default async function Home() {
   return (
     <div>
+      <FloatingWhatsApp phoneNumber="5551982599506" statusMessage="Responderá em breve" placeholder="Tire suas duvidas, faça sua encomenda..." avatar="avatar.png" accountName="MeuPin" chatMessage="Olá, quer saber como identificar seus pins, trunfos, arganeis, e não se preocupar mais em perder?"/>
+
       <div className="text-center w-full min-h-screen relative"
         data-testid={testIds.HOME_PAGE.HEADER}>
           <img className="video-background" src="/index.jpeg" />
@@ -55,6 +58,8 @@ export default async function Home() {
         <li>Mantenha seu arganel, trunfo ou pin seguro e identificável</li>
         <li>Ideal para Desbravadores, Aventureiros e amantes da natureza</li>
         <li>Evite a perda acidental e recupere seu arganel com facilidade</li>
+        <li>Você pode encomendar para você, e para seu clube, conseguindo descontos maiores como um pedido único.</li>
+        <li>Mande mansagem e tire suas dúvidas</li>
     </ul>
 
     <p className="text-sm flex-1 leading-7">
@@ -63,7 +68,7 @@ Experimente MeuPin hoje e mantenha-se
 sempre pronto para a próxima aventura.</p>
 
               <div className="mt-11 mb-20">
-                <a href="/#contact" className="btn-main">
+                <a href="#contact" className="btn-main">
                   Quero
                 </a>
               </div>
